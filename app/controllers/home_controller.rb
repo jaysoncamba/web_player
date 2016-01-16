@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-  	sc_service = SoundCloudServices::Base.new()
+  	sc_service = Services::SoundCloudServices::Base.new()
   	@hot_tracks = sc_service.search("track")
   end
 
