@@ -22,13 +22,13 @@ module Services
       
       def get_tracks
       	client.get("/users/#{id}/tracks").map{|track|
-          SoundCloudServices::Track.new(track)
+          Services::SoundCloudServices::Track.new(track)
         }
       end
 
       def get_playlists
         client.get("/users/#{id}/playlists").map{|pl|
-          SoundCloudServices::Playlist.new(pl)
+          Services::SoundCloudServices::Playlist.new(pl)
         }
       end
 

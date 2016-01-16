@@ -3,7 +3,7 @@ module Services
     class Base
   
       PAGE_SIZE = 10
-      
+
       DEFAULT_OPTIONS = {
           "order" => 'created_at',
           "limit" => PAGE_SIZE
@@ -26,12 +26,12 @@ module Services
       def search (method='track', options ={}) 
         begin
           if options['id'].present?
-            "SoundCloudServices::#{method.capitalize.classify}".constantize.new(
+            "Services::SoundCloudServices::#{method.capitalize.classify}".constantize.new(
               client.get("/#{method.pluralize}/#{options['id']}"))
           else
             results = client.get("/#{method.pluralize}", DEFAULT_OPTIONS.merge(options))
             results.map do |result|
-              "SoundCloudServices::#{method.capitalize.classify}".constantize.new(result)
+              "Services::SoundCloudServices::#{method.capitalize.classify}".constantize.new(result)
             end
           end
         rescue Soundcloud::ResponseError => e

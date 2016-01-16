@@ -12,7 +12,7 @@ module Services
       end
 
       def convert_user 
-        @user = get_user unless @user.is_a? SoundCloudServices::User
+        @user = get_user unless @user.is_a? Services::SoundCloudServices::User
       end
 
       def to_html
@@ -23,7 +23,7 @@ module Services
       private
       
       def get_user
-      	SoundCloudServices::User.new(user)
+      	Services::SoundCloudServices::User.new(user)
       end
     end
   end

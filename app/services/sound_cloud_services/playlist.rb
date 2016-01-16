@@ -13,7 +13,7 @@ module Services
       end
 
       def set_user 
-        @user = convert_user unless @user.is_a? SoundCloudServices::User
+        @user = convert_user unless @user.is_a? Services::SoundCloudServices::User
       end
 
       def set_tracks
@@ -25,11 +25,11 @@ module Services
       private
       
       def convert_user
-      	SoundCloudServices::User.new(user)
+      	Services::SoundCloudServices::User.new(user)
       end
 
       def convert_tracks(track)
-        SoundCloudServices::Track.new(track)
+        Services::SoundCloudServices::Track.new(track)
       end
 
     end
