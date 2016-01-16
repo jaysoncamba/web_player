@@ -16,8 +16,12 @@ module Services
       end
 
       def to_html
-        @embed_info ||= client.get('/oembed', :url => @uri)
-        @embed_info['html']
+        begin
+          @embed_info ||= client.get('/oembed', :url => @permalink_url)
+          @embed_info['html']
+        rescue SoundCloud::ResponseError => e
+          @embed_info = nil
+        end
       end
 
       private
