@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['PET_PROJECT_DATABASE_PASSWORD'] %>
+  
+development:
+  <<: *default
+  host: localhost
+  database: web_player_development
+
+test:
+  <<: *default
+  host: localhost
+  database: web_player_development
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: <%= ENV['DATABASE_URL'] %>
+
+

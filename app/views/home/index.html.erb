@@ -1,0 +1,5 @@
+hi bebe <%= @hot_tracks.count %>
+<br/>
+<% @hot_tracks.each do |track| %>
+	<%= track.to_html.html_safe %>
+<%end%>
