@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions" }
   root to: "home#index"
   get 'search' => "home#search_results", as: :search
+  get 'sc_user/:id' => "sound_cloud#user", as: :sc_user
+  get 'sc_track/:id' => "sound_cloud#track", as: :sc_track
+  get 'sc_playlist/:id' => "sound_cloud#playlist", as: :sc_playlist
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

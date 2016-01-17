@@ -4,8 +4,8 @@
    </div>
    <div class="col-xs-10 left"> 
     <address>
-      Username: <strong><%= user.username%></strong> <br/>
-      Profile: <%= user.permalink_url%>
+      Username: <strong><%= link_to user.username, sc_user_path(user.id)%></strong> <br/>
+      Profile: <%= link_to "Sound Cloud Profile",user.permalink_url%>
     </address>
   </div>
 </div>
