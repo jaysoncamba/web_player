@@ -1,0 +1,12 @@
+ <div class="row">
+  <div class="col-xs-2 left">
+    <img src="<%=playlist.thumbnail_link%>" class="thumb" height="70" width="70">
+   </div>
+   <div class="col-xs-10 left"> 
+    <address>
+      Playlist: <strong><%= playlist.title%></strong> <br/>
+      User: <strong> <%= playlist.user.username%> </strong> <br/>
+      Track Count: <%= playlist.track_count%>
+    </address>
+  </div>
+</div>

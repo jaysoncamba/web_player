@@ -1,15 +1,19 @@
-  <% @hot_tracks.each_with_index do |track, index| %>
+<%if @results.length > 0%>
+  <% @results.each_with_index do |result, index| %>
+    <% class_name = result.class.name.demodulize.downcase %>
     <% if index.even? %>
       <div class="row">
         <div class="card col-xs-6">
-          <%= render partial: 'sound_cloud/track', locals: {track: track}%>
+          <%= render partial: "sound_cloud/#{class_name}", locals: {class_name.to_sym => result } %>
         </div>
     <%else%>
       <div class="card col-xs-6">
-        <%= render partial: 'sound_cloud/track', locals: {track: track}%>
+        <%= render partial: "sound_cloud/#{class_name}", locals: {class_name.to_sym => result}%>
       </div>
       </div>
     <%end%>
-
   <%end%>
+<%else%>
+  <h2 class="text-center"> Oopps! Seems like that doesn't exist. :(</h2>
+<%end%>
 

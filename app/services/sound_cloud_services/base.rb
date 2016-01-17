@@ -2,12 +2,14 @@
 module SoundCloudServices
   class Base
 
-    PAGE_SIZE = 10
+    PAGE_SIZE = 20
 
     DEFAULT_OPTIONS = {
         "order" => 'created_at',
         "limit" => PAGE_SIZE
       }
+
+    METHODS = %W(track user playlist)
 
     def self.attr_accessor(*vars)
       @attributes ||= []
@@ -23,7 +25,8 @@ module SoundCloudServices
       self.class.attributes
     end
 
-    def search (method='track', options ={}) 
+    def search (method='track', options ={})
+      return [] unless METHODS.include? method
       begin
         if options['id'].present?
           "SoundCloudServices::#{method.capitalize.classify}".constantize.new(

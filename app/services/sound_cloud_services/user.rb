@@ -9,6 +9,10 @@ module SoundCloudServices
       set_attributes
     end
 
+    def thumbnail_link
+      @avatar_url.present? ? @avatar_url : (ActionController::Base.helpers.asset_path("soundcloud-icon.png"))
+    end
+
     def tracks
     	@tracks ||= get_tracks
     end

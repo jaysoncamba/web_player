@@ -3,10 +3,12 @@ class HomeController < ApplicationController
   before_filter :set_scobject
 
   def index 
-    @hot_tracks = @sc_service.search("track")
+    @results = @sc_service.search
   end
 
   def search_results
+    @results = @sc_service.search(params[:method].downcase, q: params[:term])
+    render :index
   end
 
   private
