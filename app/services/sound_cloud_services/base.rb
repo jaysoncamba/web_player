@@ -28,9 +28,9 @@ module SoundCloudServices
     def search (method='track', options ={})
       return [] unless METHODS.include? method
       begin
-        if options['id'].present?
-          "SoundCloudServices::#{method.capitalize.classify}".constantize.new(
-            client.get("/#{method.pluralize}/#{options['id']}"))
+        if options[:id].present?
+          ["SoundCloudServices::#{method.capitalize.classify}".constantize.new(
+            client.get("/#{method.pluralize}/#{options[:id]}"))]
         else
           results = client.get("/#{method.pluralize}", DEFAULT_OPTIONS.merge(options))
           results.map do |result|

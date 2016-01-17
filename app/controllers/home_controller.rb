@@ -7,7 +7,8 @@ class HomeController < ApplicationController
   end
 
   def search_results
-    @results = @sc_service.search(params[:method].downcase, q: params[:term])
+    sc_field = params[:field].downcase == "term" ? {q: params[:term]} : {id: params[:term]}
+    @results = @sc_service.search(params[:method].downcase, sc_field)
     render :index
   end
 
