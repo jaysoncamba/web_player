@@ -1,5 +1,15 @@
-<!-- hi bebe <%= @hot_tracks.count %>
-<br/>
-<% @hot_tracks.each do |track| %>
-	<%= track.to_html.try(:html_safe) %>
-<%end%> -->
+  <% @hot_tracks.each_with_index do |track, index| %>
+    <% if index.even? %>
+      <div class="row">
+        <div class="card col-xs-6">
+          <%= render partial: 'sound_cloud/track', locals: {track: track}%>
+        </div>
+    <%else%>
+      <div class="card col-xs-6">
+        <%= render partial: 'sound_cloud/track', locals: {track: track}%>
+      </div>
+      </div>
+    <%end%>
+
+  <%end%>
+

@@ -1,8 +1,8 @@
 module SoundCloudServices
   class Track < Base
 
-    attr_accessor :id, :user_id, :artwork_url, :description, :permalink_url,
-      :uri, :track_count, :playlist_count, :title, :user
+    attr_accessor :id, :user_id, :artwork_url, :permalink_url, :created_at,
+      :uri, :purchase_url, :title, :user, :description
 
     def initialize(sc_track = {})
       @sc_obj = sc_track
@@ -21,6 +21,10 @@ module SoundCloudServices
       rescue SoundCloud::ResponseError => e
         @embed_info = nil
       end
+    end
+
+    def thumbnail_link
+      @artwork_url.present? ? @artwork_url : (ActionController::Base.helpers.asset_path("soundcloud-icon.png"))
     end
 
     private

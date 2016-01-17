@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Striped</title>
+    <title>Web Player</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
@@ -16,10 +16,10 @@
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <%= render partial: 'shared/navigation_bar' %>
     </nav>
-    
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    <div class='container'>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class="container">
       <%= yield %>
     </div>
 

@@ -21,7 +21,6 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
           <li> <%= nav_link 'Edit profile', edit_user_registration_path%> </li>
           <li> <%= nav_link "Logout", destroy_user_session_path, method: :delete%> </li>
         <% else %>

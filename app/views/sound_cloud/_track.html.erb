@@ -1,0 +1,12 @@
+ <div class="row">
+  <div class="col-xs-2 left">
+    <img src="<%=track.thumbnail_link%>" class=".thumb" height="70" width="70">
+   </div>
+   <div class="col-xs-10 left"> 
+    <address>
+      Track Title: <strong><%= track.title%></strong> <br/>
+      User: <strong> <%= track.user.username%> </strong> <br/>
+      Created at: <%= track.created_at%>
+    </address>
+  </div>
+</div>
