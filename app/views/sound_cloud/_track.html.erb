@@ -6,7 +6,7 @@
     <address>
       Track Title: <strong><%= link_to track.title, sc_track_path(track.id)%></strong> <br/>
       Username: <strong><%= link_to track.user.username, sc_user_path(track.user.id)%></strong> <br/>
-      Created at: <%= track.created_at%>
+      <%= link_to "Open in SoundCloud", track.permalink_url, target: "_blank"%>
     </address>
   </div>
 </div>

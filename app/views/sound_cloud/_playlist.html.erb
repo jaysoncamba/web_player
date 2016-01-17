@@ -6,7 +6,7 @@
     <address>
       Playlist: <strong><%= link_to playlist.title, sc_playlist_path(playlist.id)%></strong> <br/>
       User: <strong> <%= link_to playlist.user.username, sc_user_path(playlist.user.id)%> </strong> <br/>
-      Track Count: <%= playlist.track_count%>
+      <%= link_to "Open in SoundCloud", playlist.permalink_url, target: "_blank"%>
     </address>
   </div>
 </div>
