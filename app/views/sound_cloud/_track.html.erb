@@ -4,8 +4,8 @@
    </div>
    <div class="col-xs-10 left"> 
     <address>
-      Track Title: <strong><%= track.title%></strong> <br/>
-      User: <strong> <%= track.user.username%> </strong> <br/>
+      Track Title: <strong><%= link_to track.title, sc_track_path(track.id)%></strong> <br/>
+      Username: <strong><%= link_to track.user.username, sc_user_path(track.user.id)%></strong> <br/>
       Created at: <%= track.created_at%>
     </address>
   </div>

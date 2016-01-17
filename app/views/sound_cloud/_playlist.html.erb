@@ -4,8 +4,8 @@
    </div>
    <div class="col-xs-10 left"> 
     <address>
-      Playlist: <strong><%= playlist.title%></strong> <br/>
-      User: <strong> <%= playlist.user.username%> </strong> <br/>
+      Playlist: <strong><%= link_to playlist.title, sc_playlist_path(playlist.id)%></strong> <br/>
+      User: <strong> <%= link_to playlist.user.username, sc_user_path(playlist.user.id)%> </strong> <br/>
       Track Count: <%= playlist.track_count%>
     </address>
   </div>

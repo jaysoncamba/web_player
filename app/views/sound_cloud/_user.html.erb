@@ -5,7 +5,7 @@
    <div class="col-xs-10 left"> 
     <address>
       Username: <strong><%= link_to user.username, sc_user_path(user.id)%></strong> <br/>
-      Profile: <%= link_to "Sound Cloud Profile",user.permalink_url%>
+      Profile: <%= link_to "Sound Cloud Profile", user.permalink_url, target: "_blank"%>
     </address>
   </div>
 </div>

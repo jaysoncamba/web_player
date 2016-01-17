@@ -1,1 +1,31 @@
-<%= @user%>
+<%= render partial: "sound_cloud/user", locals: {user: @user} %>
+<div class="row">
+  <div class="col-xs-12">
+    <%if @user.playlists.length > 0%>
+      <h3>Playlists by: <%=@user.username%></h3>
+      <% @user.playlists.each_with_index do |playlist, index| %>
+        <%="<div class='row'>".html_safe if index.even? %>
+        <div class="card col-xs-6">
+          <%= render partial: "sound_cloud/playlist", locals: {playlist: playlist } %>
+        </div>
+        <%="</div>".html_safe if index.odd? || index == (@user.playlists.count - 1)  %>
+      <%end%>
+    <%else%>
+      <h2 class="text-center"> No Playlist Available</h2>
+    <%end%>
+  </div> 
+  <div class="col-xs-12">
+    <%if @user.tracks.length > 0%>
+      <h3>Tracks by: <%=@user.username%></h3>
+      <% @user.tracks.each_with_index do |track, index| %>
+        <%="<div class='row'>".html_safe if index.even? %>
+        <div class="card col-xs-6">
+          <%= render partial: "sound_cloud/track", locals: {track: track } %>
+        </div>
+        <%="</div>".html_safe if index.odd? || index == (@user.tracks.count - 1)  %>
+      <%end%>
+    <%else%>
+      <h2 class="text-center"> No Tracks Available</h2>
+    <%end%>
+  </div>
+</div>
